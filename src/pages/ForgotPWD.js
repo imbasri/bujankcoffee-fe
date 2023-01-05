@@ -10,7 +10,7 @@ import titlebar from "../utility/WebDinamis";
 
 // import images
 import bg_left_forgotpwd from "../asset/forgotpwd_bgleft.png";
-import icon_coffee from "../asset/icon_coffee.png";
+import icon_coffee from "../asset/icon_titlebar.png";
 import { Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 

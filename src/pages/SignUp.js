@@ -134,7 +134,7 @@ const SignUp = () => {
                         value={email}
                      />
                   </div>
-                  <div className={styles["input"]}>
+                  <div className={`${styles["input"]} position-relative`}>
                      <label for="">Password :</label>
                      <input
                         type={type}
@@ -144,10 +144,11 @@ const SignUp = () => {
                         onChange={handlePasswords}
                         value={passwords}
                      />
-                  </div>
-                  <div onClick={handleToggle} className="w-100 ms-5 me-5">
-                     Show Password
-                     <Icon icon={icon} className="ms-2 my-2" />
+                     <Icon
+                        onClick={handleToggle}
+                        icon={icon}
+                        className={`${styles.iconEye} ms-2 my-2 fs-3`}
+                     />
                   </div>
                   <div className={styles["input"]}>
                      <label for="">Phone Number :</label>

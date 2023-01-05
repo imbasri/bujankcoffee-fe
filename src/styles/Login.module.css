@@ -1,9 +1,9 @@
-*{
+* {
     font-family: 'Rubik', sans-serif;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    
+
 }
 
 .container {
@@ -58,7 +58,8 @@
 
 
 
-.register {             /* side right > induk register */
+.register {
+    /* side right > induk register */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,7 +74,7 @@
     margin: 0px 40px 0 40px;
 }
 
-.input > label {
+.input>label {
     margin-top: 32px;
     margin-bottom: 10px;
     font-size: 20px;
@@ -85,7 +86,13 @@
     color: #4F5665;
 }
 
-.input > input {
+.iconEye {
+    position: absolute;
+    bottom: 0;
+    right: 16px;
+}
+
+.input>input {
     margin-top: 6px;
     font-size: 15px;
     border-radius: 20px;
@@ -105,18 +112,19 @@
 .input>input::placeholder {
     color: grey;
 }
-.input>input:focus{
+
+.input>input:focus {
     outline: none;
 }
 
-.register > .button {
+.register>.button {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin: 55px 40px 0px 40px;
 }
 
-.button > button {
+.button>button {
     border-radius: 20px;
     font-size: 20px;
     font-weight: bold;
@@ -134,7 +142,7 @@
 
 
 
-.register > .button-google > span > button {
+.register>.button-google>span>button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,36 +157,37 @@
     box-shadow: 0px 6px 20px rgba(196, 196, 196, 0.67);
     height: 55px;
 }
-.button-google > span > button > p {
+
+.button-google>span>button>p {
     margin-left: 10px;
-    
-    
+
+
 }
 
-.button-google > span {
+.button-google>span {
     display: flex;
 }
 
-.register > .button-google {
+.register>.button-google {
     width: 100%;
 }
 
 
 
 
-.register > h2 {
-    width: 100%; 
+.register>h2 {
+    width: 100%;
     text-align: center;
     font-size: 16px;
     color: #9F9F9F;
-    border-bottom: 1px solid #9F9F9F; 
+    border-bottom: 1px solid #9F9F9F;
     line-height: 0.1em;
-    margin: 10px 40px 0px 40px; 
-    
+    margin: 10px 40px 0px 40px;
+
 }
 
-.register > h2 > span {
-    background:#fff; 
+.register>h2>span {
+    background: #fff;
     padding: 0 10px;
 }
 
@@ -186,7 +195,7 @@
 
 
 
-.register > .button-login {
+.register>.button-login {
     width: 100%;
     margin: 55px 40px 80px 40px;
     border-radius: 20px;
@@ -244,7 +253,7 @@
     .left-heading {
         display: none;
     }
-  }
+}
 
 
 @media only screen and (max-width: 428px) {
@@ -267,7 +276,7 @@
         color: #6A4029;
         padding-left: 200px;
     }
-    
+
 
     .right-heading {
         width: 100%;

@@ -132,7 +132,7 @@ function Login() {
                         onChange={handleEmail}
                      />
                   </div>
-                  <div className={styles.input}>
+                  <div className={`${styles.input} position-relative`}>
                      <label>Password :</label>
                      <input
                         type={type}
@@ -140,9 +140,8 @@ function Login() {
                         onChange={handlePasswords}
                      />
 
-                     <span onClick={handleToggle}>
-                        Show Password
-                        <Icon icon={icon} className="ms-2 my-2" />
+                     <span onClick={handleToggle} className={styles.iconEye}>
+                        <Icon icon={icon} className="ms-2 my-2 fs-3" />
                      </span>
                   </div>
                   <Link
