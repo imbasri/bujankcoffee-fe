@@ -62,7 +62,9 @@ const SignUp = () => {
                // menampilkan notifikasi error
                position: toast.POSITION.TOP_RIGHT,
             });
-            navigate("/login");
+            setTimeout(() => {
+               navigate("/login");
+            }, 1000);
             setLoading(false);
          })
          .catch((err) => {
@@ -110,7 +112,7 @@ const SignUp = () => {
             </aside>
 
             <aside className={styles["right-heading"]}>
-               <Link to="/" className={styles["icon-coffee"]}>
+               <Link to="#" className={styles["icon-coffee"]}>
                   <img
                      src={icon_coffee}
                      alt="icon_coffee"

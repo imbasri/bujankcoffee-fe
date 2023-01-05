@@ -100,37 +100,6 @@ function Login() {
          ErrorMessage(error.response.data.msg.msg);
          setLoading(false);
       }
-
-      // e.preventDefault();
-      // setLoading(true)
-      // if(!email || !passwords ) return  (toast.error("Data register can't be empty", {
-      //    // menampilkan notifikasi error
-      //    position: toast.POSITION.TOP_RIGHT,
-      // }), setLoading(false))
-      // axios
-      //    .post(`${process.env.REACT_APP_BACKEND_HOST}/auth`, {
-      //       email,
-      //       passwords,
-      //    })
-      //    .then((response) => {
-      //       try {
-      //          localStorage.setItem("token", response.data.result.data.token);
-      //          localStorage.setItem("role", response.data.result.data.role);
-      //          SuccessMessage();
-      //          await dispatch(authActions.userIDThunk(response.data.result.data.token),
-      //          () => {
-      //             navigate("/")
-      //             setLoading(false)
-      //          })
-      //       } catch (error) {
-      //          console.log(error)
-      //       }
-      //    })
-      //    .catch((err) => {
-      //       ErrorMessage();
-      //       setLoading(false)
-      //       // console.log(err);
-      //    });
    };
 
    /* Main Website */
@@ -144,7 +113,7 @@ function Login() {
             </aside>
 
             <aside className={styles["right-heading"]}>
-               <Link to="/" className={styles["icon-coffee"]}>
+               <Link to="#" className={styles["icon-coffee"]}>
                   <img
                      src={icon_coffee}
                      alt="icon_coffee"
