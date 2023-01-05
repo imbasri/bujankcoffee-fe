@@ -380,26 +380,14 @@ const Profile = () => {
                   </div>
 
                   <div className="container d-flex flex-row flex-warp justify-content-center mt-3">
-                     {/* <div className="form-check mx-5">
-                                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="male" checked />
-                                    <label className="form-check-label" for="male">
-                                        Male
-                                    </label>
-                                </div>
-                                <div className="form-check mx-5">
-                                    <input className="form-check-input" type="radio" name="flexRadioDefault" id="female" />
-                                    <label className="form-check-label" for="female">
-                                        Female
-                                    </label>
-                                </div> */}
                      <div className={styles.input__radio}>
                         <input
                            type="radio"
                            name="gender"
-                           id="male"
-                           value={"male"}
+                           id="MALE"
+                           value={"MALE"}
                            onChange={valueGender}
-                           checked={gender === "male"}
+                           checked={gender === "MALE"}
                            disabled={isEdit}
                         />
                         <label htmlFor="MALE" className={styles.radio_label}>
@@ -410,10 +398,10 @@ const Profile = () => {
                         <input
                            type="radio"
                            name="gender"
-                           id="female"
-                           value={"female"}
+                           id="FEMALE"
+                           value={"FEMALE"}
                            onChange={valueGender}
-                           checked={gender === "female"}
+                           checked={gender === "FEMALE"}
                            disabled={isEdit}
                         />
                         <label htmlFor="FEMALE" className={styles.radio_label}>
