@@ -153,7 +153,12 @@ function AddPromo() {
                   <nav aria-label="breadcrumb">
                      <ol className="breadcrumb">
                         <li className={`breadcrumb-item ${styles["step-one"]}`}>
-                           <Link to="/handlingproduct">Product</Link>
+                           <Link
+                              to="/product"
+                              className={`breadcrumb-item ${styles["step-two"]} text-decoration-none`}
+                           >
+                              Product
+                           </Link>
                         </li>
                         <li className={`breadcrumb-item ${styles["step-two"]}`}>
                            Add new promo
@@ -216,21 +221,25 @@ function AddPromo() {
                         }}
                      >
                         <button
+                           className={`btn btn-warning rounded-5 w-50 `}
                            onClick={() => {
                               setShowColor((showColor) => !showColor);
                               if (showColor) return setPrevColor(color);
                            }}
                         >
-                           {showColor ? "confirm color" : "select color"}
+                           <span className="fw-bold">
+                              {showColor ? "confirm color" : "select color"}
+                           </span>
                         </button>
                         {showColor && (
                            <button
+                              className={`btn btn-danger rounded-5 w-50 `}
                               onClick={() => {
                                  setShowColor((showColor) => !showColor);
                                  setColor(prevColor);
                               }}
                            >
-                              cancel
+                              <span className="fw-bold">Cancel</span>
                            </button>
                         )}
                      </div>
@@ -265,9 +274,14 @@ function AddPromo() {
                         <div onClick={() => setShow(true)}>
                            size : {sizeProduct}
                         </div>
-                        <button onClick={() => setShow(true)}>
-                           choose product
-                        </button>
+                        <div className="justify-content-center align-items-center d-flex">
+                           <button
+                              className={`btn btn-warning rounded-5 w-50 `}
+                              onClick={() => setShow(true)}
+                           >
+                              <span className="fw-bold">choose product</span>
+                           </button>
+                        </div>
                         <label for="">valid until :</label>
                         <input
                            type="date"

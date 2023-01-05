@@ -76,7 +76,7 @@ function NavbarAdmin() {
                   <Link to="/history" className="nav-link">
                      Order
                   </Link>
-                  <Link to="#" className="nav-link">
+                  <Link to="/dashboard" className="nav-link">
                      Dashboard
                   </Link>
                </div>

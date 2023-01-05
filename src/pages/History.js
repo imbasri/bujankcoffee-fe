@@ -140,7 +140,7 @@ const History = () => {
                <div className="row d-flex  mx-auto ">
                   {loading ? (
                      <div className="d-flex justify-content-center align-items-center mx-auto my-5 py-5">
-                        <Spinner animation="border" variant="info" />
+                        <Spinner animation="border" variant="warning" />
                      </div>
                   ) : err === "History Not Found" ? (
                      <h1 className="text-white text-center mt-5">

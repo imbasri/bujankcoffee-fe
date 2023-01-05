@@ -16,6 +16,7 @@ import Updatepromo from "./pages/admin/UpdatePromo";
 import AddPromo from "./pages/admin/AddPromo";
 import ResetPass from "./pages/ResetPassword";
 import OTP from "./pages/auth/Otp";
+import Dashboard from "./pages/admin/Dashboard";
 
 import PrivateElement from "./components/PrivateElement.js";
 
@@ -89,6 +90,14 @@ const router = createBrowserRouter([
       element: (
          <PrivateElement allowedRoles={["admin"]}>
             <AddPromo />
+         </PrivateElement>
+      ),
+   },
+   {
+      path: "/dashboard",
+      element: (
+         <PrivateElement allowedRoles={["admin"]}>
+            <Dashboard />
          </PrivateElement>
       ),
    },

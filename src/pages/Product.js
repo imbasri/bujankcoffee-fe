@@ -235,7 +235,7 @@ const Product = () => {
                            className={`${styles["apply-coupon"]} mt-5 rounded-5 w-100`}
                         >
                            {profile.role === "admin"
-                              ? "add coupon"
+                              ? "Add coupon"
                               : "Apply Coupon"}
                         </button>
                      ) : null}
@@ -432,7 +432,7 @@ const Product = () => {
                                  onClick={getPrevProducts}
                                  disabled={prev === null}
                               >
-                                 Prev
+                                 <span className="text-black"> Prev</span>
                               </button>
                               <button
                                  className={`${styles["button-next"]} ${
@@ -441,7 +441,7 @@ const Product = () => {
                                  onClick={getNextProducts}
                                  disabled={next === null}
                               >
-                                 Next
+                                 <span className="text-black"> Next</span>
                               </button>
                            </div>
                         </>

@@ -95,7 +95,9 @@ function UpdateProduct() {
             toast.success(res.data.result.msg, {
                position: toast.POSITION.TOP_RIGHT,
             });
-            navigate("/product");
+            setTimeout(() => {
+               navigate("/product");
+            }, 1000);
          })
          .catch((err) => {
             console.log(err);
