@@ -15,7 +15,6 @@ function Otp() {
          .then(() => console.log("success"))
          .catch((err) => console.log(err));
    }, []);
-
    const toLogin = () => navigate("/login");
 
    return (
