@@ -66,7 +66,6 @@ const Product = () => {
             //   setTotalPage(res.data.result.totalPage);
             setNext(res.data.result.next);
             setPrev(res.data.result.prev);
-
             console.log(res.data.result);
             setLoading(false);
          })
@@ -109,6 +108,7 @@ const Product = () => {
    };
 
    const getPrevProducts = () => {
+      window.scrollTo(0, 0);
       setLoading(true);
       setCurrentPage(currentPage - 1);
       navigate(
@@ -123,8 +123,6 @@ const Product = () => {
             setNext(res.data.result.next);
             setPrev(res.data.result.prev);
             setLoading(false);
-
-            window.scrollTo(0, 0);
          })
          .catch((err) => {
             console.log(err);
@@ -132,8 +130,8 @@ const Product = () => {
          });
    };
    const getNextProducts = () => {
+      window.scrollTo(0, 0);
       setLoading(true);
-
       setCurrentPage(currentPage + 1);
       navigate(
          `?category=${category}&sorting=${sorting}&page=${

@@ -56,7 +56,7 @@ export default function Navbar_notLogin() {
                      to="/signup"
                      className={`${styles["sign-up-nav"]} d-none d-sm-block d-md-none d-lg-block d-sm-none`}
                   >
-                     <span>Sign-Up</span>
+                     <span>Sign Up</span>
                   </Link>
                   <Link to="#" className="nav-link d-lg-none d-sm-block">
                      <span className={styles.burger}>
