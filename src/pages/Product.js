@@ -126,7 +126,10 @@ const Product = () => {
 
             window.scrollTo(0, 0);
          })
-         .catch((err) => console.log(err));
+         .catch((err) => {
+            console.log(err);
+            setLoading(false);
+         });
    };
    const getNextProducts = () => {
       setLoading(true);
@@ -146,7 +149,10 @@ const Product = () => {
             window.scrollTo(0, 0);
             setLoading(false);
          })
-         .catch((err) => console.log(err));
+         .catch((err) => {
+            console.log(err);
+            setLoading(false);
+         });
    };
 
    titlebar("Bujank Coffee | Product");
