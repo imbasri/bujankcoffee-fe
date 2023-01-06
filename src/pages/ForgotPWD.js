@@ -63,7 +63,7 @@ const ForgotPWD = () => {
 
             <aside className={styles["right-heading"]}>
                <div className={styles["icon-coffee"]}>
-                  <img src={icon_coffee} alt="icon_coffee" />
+                  <img src={icon_coffee} alt="icon_coffee" width={100} />
                   <p>Bujank Coffee</p>
                </div>
                <form className={styles.register}>
@@ -99,7 +99,7 @@ const ForgotPWD = () => {
                      ) : null}
                   </div>
 
-                  <a href="/Sign-up.html" className={styles["button-login"]}>
+                  <a href="/Signup" className={styles["button-login"]}>
                      <span>Resign Link</span>
                   </a>
                </form>

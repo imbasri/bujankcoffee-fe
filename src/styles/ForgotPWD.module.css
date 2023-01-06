@@ -1,9 +1,9 @@
-*{
+* {
     font-family: 'Rubik', sans-serif;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    
+
 }
 
 .container {
@@ -16,26 +16,17 @@
 }
 
 
-
-
-
-
 .icon-coffee {
+    margin-top: 50px;
     display: flex;
-    position: relative;
-    align-items: center;
     justify-content: center;
-    margin: 55px 55px 0px 56px;
+    align-items: center;
+    width: 100%;
+    padding: 0 60px;
 }
 
-.icon-coffee img {
-    display: flex;
-    position: absolute;
-    margin-right: 120px;
-}
 
 .icon-coffee p {
-    position: absolute;
     padding-left: 10px;
     font-family: 'Rubik';
     font-style: normal;
@@ -59,7 +50,8 @@
 
 
 
-.register {             /* side right > induk register */
+.register {
+    /* side right > induk register */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,8 +73,9 @@
     text-align: center;
     color: #000000;
 }
+
 .text_two {
-    
+
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -104,7 +97,7 @@
 }
 
 
-.input > input {
+.input>input {
     margin-top: 6px;
     font-size: 15px;
     border-radius: 20px;
@@ -124,18 +117,19 @@
 .input>input::placeholder {
     color: grey;
 }
-.input>input:focus{
+
+.input>input:focus {
     outline: none;
 }
 
-.register > .button {
+.register>.button {
     display: flex;
     flex-direction: column;
     width: 100%;
     margin: 55px 40px 0px 40px;
 }
 
-.button > button {
+.button>button {
     border-radius: 20px;
     font-size: 20px;
     font-weight: bold;
@@ -163,7 +157,7 @@
     font-family: 'Poppins';
 }
 
-.send-text .send_one{
+.send-text .send_one {
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -173,7 +167,7 @@
     margin-top: 70px;
 }
 
-.send-text .send_two{
+.send-text .send_two {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -181,7 +175,7 @@
     line-height: 30px;
     text-align: center;
     color: #000000;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
 
@@ -191,7 +185,7 @@
 
 
 
-.register > .button-login {
+.register>.button-login {
     width: 100%;
     margin: 55px 40px 80px 40px;
     border-radius: 20px;
@@ -243,7 +237,7 @@
     .left-heading {
         display: none;
     }
-  }
+}
 
 
 @media only screen and (max-width: 428px) {
@@ -270,13 +264,13 @@
     .icon-coffee p {
         left: 135px;
     }
-    
+
 
     .right-heading {
         width: 100%;
     }
 
-    .send-text .send_one{
+    .send-text .send_one {
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
