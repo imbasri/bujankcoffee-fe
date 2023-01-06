@@ -49,7 +49,13 @@ class Dashboard extends Component {
                            >
                               Monthly
                            </label>
-                           <input type="radio" name="pickradio" id="month" />
+
+                           <input
+                              defaultChecked
+                              type="radio"
+                              name="pickradio"
+                              id="month"
+                           />
                         </div>
                      </div>
                   </section>

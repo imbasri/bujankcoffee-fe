@@ -7,7 +7,7 @@ import icon_coffee from "../asset/icon_titlebar.png";
 import { ToastContainer, toast } from "react-toastify";
 
 export default function Navbar_notLogin() {
-   const onklik = () => {
+   const onClick = () => {
       console.log("click");
       toast.error("please login first", {
          position: toast.POSITION.TOP_RIGHT,
@@ -17,7 +17,7 @@ export default function Navbar_notLogin() {
       <>
          <ToastContainer />
          {/* <!-- Start Navbar --> */}
-         <div className="container">
+         <div className={`${styles.navbar_bar} container`}>
             <nav className="nav d-flex justify-content-between align-items-center mx-auto px-4">
                <div className={`${styles["left-nav"]} d-flex py-4`}>
                   <img
@@ -38,10 +38,10 @@ export default function Navbar_notLogin() {
                   <Link to="/product" className="nav-link">
                      Product
                   </Link>
-                  <Link onClick={onklik} className="nav-link">
+                  <Link onClick={onClick} className="nav-link">
                      Your Cart
                   </Link>
-                  <Link onClick={onklik} className="nav-link">
+                  <Link onClick={onClick} className="nav-link">
                      History
                   </Link>
                </div>

@@ -68,7 +68,9 @@ function UpdateProduct() {
          toast.success("success edit product", {
             position: toast.POSITION.TOP_RIGHT,
          });
-         navigate("/product");
+         setTimeout(() => {
+            navigate("/product");
+         }, 2000);
          setLoading(false);
       } catch (error) {
          console.log(error);
@@ -81,6 +83,7 @@ function UpdateProduct() {
 
    const deleteProduct = () => {
       const getToken = localStorage.getItem("token");
+
       axios
          .patch(
             `https://bebujankcoffee-1mt7.vercel.app/coffee/product/delete/${id}`,
@@ -108,6 +111,7 @@ function UpdateProduct() {
    };
 
    useEffect(() => {
+      window.scroll(0, 0);
       axios
          .get(`${process.env.REACT_APP_BACKEND_HOST}/product/${id}`)
          .then((res) => {
@@ -145,7 +149,7 @@ function UpdateProduct() {
                            <li
                               className={`breadcrumb-item ${styles["step-two"]}`}
                            >
-                              Add new product
+                              {name}
                            </li>
                         </ol>
                         <button
@@ -365,7 +369,7 @@ function UpdateProduct() {
                         onClick={saveHandle}
                      >
                         {loading ? (
-                           <div className="d-flex justify-content-center align-items-center pt-3">
+                           <div className="d-flex justify-content-center align-items-center ">
                               <Spinner animation="border" />
                            </div>
                         ) : (

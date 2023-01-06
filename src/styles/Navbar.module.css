@@ -7,7 +7,11 @@
     color: #0B132A;
 }
 
-.center-nav a{
+.navbar_bar {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.center-nav a {
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 400;
@@ -16,8 +20,8 @@
     color: #4F5665;
 }
 
-.center-nav a:hover  {
-    transform: scale(1.5);
+.center-nav a:hover {
+    transform: scale(1.1);
     color: #9e684b;
 }
 
@@ -54,11 +58,12 @@
 }
 
 .input-search {
-    
+
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;;
+    width: 100%;
+    ;
     height: 42.5px;
     line-height: 30px;
     outline: 0;
@@ -70,7 +75,7 @@
     background: #FFBA33;
 }
 
-.fa_icon{
+.fa_icon {
     box-sizing: border-box;
     padding: 10px;
     margin-top: 3px;
@@ -85,19 +90,19 @@
 }
 
 .box-search:hover,
-.box-search:valid{
+.box-search:valid {
     width: 250px;
     cursor: pointer;
 }
 
-.box-search:hover .input-search ,
-.box-search:valid .input-search{
+.box-search:hover .input-search,
+.box-search:valid .input-search {
     display: block;
 }
 
 
 .box-search:hover .fa_icon,
-.box-search:valid .fa_icon{
+.box-search:valid .fa_icon {
     background: #07051a;
     color: white;
 }

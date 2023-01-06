@@ -109,6 +109,7 @@ const Product = () => {
    };
 
    const getPrevProducts = () => {
+      setLoading(true);
       setCurrentPage(currentPage - 1);
       navigate(
          `?category=${category}&sorting=${sorting}&page=${
@@ -121,11 +122,15 @@ const Product = () => {
             setProduct(res.data.result.data);
             setNext(res.data.result.next);
             setPrev(res.data.result.prev);
+            setLoading(false);
+
             window.scrollTo(0, 0);
          })
          .catch((err) => console.log(err));
    };
    const getNextProducts = () => {
+      setLoading(true);
+
       setCurrentPage(currentPage + 1);
       navigate(
          `?category=${category}&sorting=${sorting}&page=${
@@ -139,6 +144,7 @@ const Product = () => {
             setNext(res.data.result.next);
             setPrev(res.data.result.prev);
             window.scrollTo(0, 0);
+            setLoading(false);
          })
          .catch((err) => console.log(err));
    };
@@ -174,7 +180,7 @@ const Product = () => {
                      {/* Card promo start */}
                      {loading_promo ? (
                         <div className="d-flex justify-content-center align-items-center my-5">
-                           <Spinner animation="border" />
+                           <Spinner animation="grow" variant="warning" />
                         </div>
                      ) : (
                         <>
@@ -390,7 +396,7 @@ const Product = () => {
                      </div>
                      {loading ? (
                         <div className="d-flex justify-content-center align-items-center mt-5">
-                           <Spinner animation="border" />
+                           <Spinner animation="grow" variant="warning" />
                         </div>
                      ) : (
                         <>

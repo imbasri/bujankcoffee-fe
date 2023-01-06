@@ -99,7 +99,9 @@ function UpdatePromo() {
          toast.success("success add promo", {
             position: toast.POSITION.TOP_RIGHT,
          });
-         // navigate("/");
+         setTimeout(() => {
+            navigate("/product");
+         }, 2000);
       } catch (error) {
          console.log(error.response);
          toast.error("error add product", {
@@ -322,12 +324,13 @@ function UpdatePromo() {
                         </button>
                         {showColor && (
                            <button
+                              className="btn btn-danger rounded-5"
                               onClick={() => {
                                  setShowColor((showColor) => !showColor);
                                  setColor(prevColor);
                               }}
                            >
-                              cancel
+                              <span className="fw-bold">Cancel</span>
                            </button>
                         )}
                      </div>

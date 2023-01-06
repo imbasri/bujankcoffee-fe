@@ -48,7 +48,7 @@ function NavbarAdmin() {
    return (
       <>
          <ToastContainer />
-         <div className="container">
+         <div className={`${styles.navbar_bar} container`}>
             <nav className="nav d-flex justify-content-between align-items-center mx-auto px-4">
                <div
                   id="navbarNav"

@@ -86,7 +86,7 @@ function AddProduct() {
                      <ol className="breadcrumb">
                         <li
                            className={`breadcrumb-item ${styles["step-one"]}`}
-                           onClick={() => navigate("/handlingproduct")}
+                           onClick={() => navigate("/product")}
                         >
                            Product
                         </li>

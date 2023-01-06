@@ -45,6 +45,7 @@ const Profile = () => {
    const [image, setImage] = useState("");
    const [display, setDisplay] = useState(profile.image);
    const [isEdit, setIsEdit] = useState(true);
+   const [isEditImage, setIsEditImage] = useState(true);
    const [loading, setLoading] = useState(false);
    const [show, setShow] = useState(false);
    // const navLogin = <Navbar />;
@@ -94,7 +95,7 @@ const Profile = () => {
 
    // selectImage => untuk preview image ketika abis di choose file
    const selectImage = () => {
-      if (!image) return display;
+      if (image === "") return display;
       return URL.createObjectURL(image);
    };
 
@@ -102,6 +103,8 @@ const Profile = () => {
    const handleFile = (e) => {
       let file = e.target.files[0];
       setImage(file);
+      setIsEditImage(false);
+      setIsEdit(false);
       // console.log(e.target.files[0]);
       // console.log(URL.createObjectURL(e.target.files[0]));
    };
@@ -134,12 +137,7 @@ const Profile = () => {
    // handleCancel => kondisi ketika button cancel di klik maka akan mengembalikan inputan awal
    const handleCancel = (e) => {
       setLoading(false);
-      setAddress("");
-      setBirthday("");
-      setDisplayname("");
-      setFirstname("");
-      setLastname("");
-      setGender("");
+      window.location.reload(false);
       setIsEdit(true);
    };
 
@@ -157,7 +155,9 @@ const Profile = () => {
 
    const handleCancelImage = (e) => {
       e.preventDefault();
+      setImage("");
       setDisplay(profile.image);
+      setIsEditImage(true);
    };
 
    //handleLogout => untuk menghapus token dan role di localstorage serta menghapus di redis BE
@@ -225,44 +225,50 @@ const Profile = () => {
                      />
                      {/* style="display:none;" */}
                   </div>
-                  <button
-                     className={`${styles["remove-profile"]} mt-3 rounded-5`}
-                     onClick={handleCancelImage}
-                  >
-                     Remove Photo
-                  </button>
+                  {isEditImage ? null : (
+                     <button
+                        className={`${styles["remove-profile"]} mt-3 rounded-5`}
+                        onClick={handleCancelImage}
+                     >
+                        Remove Photo
+                     </button>
+                  )}
                   <button
                      className={`${styles["editpwd-profile"]} mt-5 rounded-5`}
                   >
                      Edit Password
                   </button>
-                  <span
-                     className={`${styles["save-change-profile"]} text-center mt-5 fs-4`}
-                  >
-                     Do you want to save the change?
-                  </span>
-                  <button
-                     className={`${styles["change-profile"]} mt-5 rounded-5`}
-                     onClick={editData}
-                  >
-                     {loading ? (
-                        <div className="d-flex justify-content-center align-items-center ">
-                           <Spinner animation="border" />
-                        </div>
-                     ) : (
-                        "Save Change"
-                     )}
-                  </button>
-                  {/* <button className={`${styles["cancel-profile"]} mt-3 rounded-5`} onClick={this.handleCancel}>Cancel</button> */}
-                  <button
-                     className={`${styles["cancel-profile"]} mt-3 rounded-5`}
-                     onClick={(e) => {
-                        e.preventDefault();
-                        handleCancel();
-                     }}
-                  >
-                     Cancel
-                  </button>
+
+                  <div className="justify-content-center align-items-center d-flex flex-column">
+                     <span
+                        className={`${styles["save-change-profile"]} text-center mt-5 fs-4`}
+                     >
+                        Do you want to save the change?
+                     </span>
+                     <button
+                        className={`${styles["change-profile"]} mt-5 rounded-5`}
+                        onClick={editData}
+                     >
+                        {loading ? (
+                           <div className="d-flex justify-content-center align-items-center ">
+                              <Spinner animation="border" />
+                           </div>
+                        ) : (
+                           "Save Change"
+                        )}
+                     </button>
+                     {/* <button className={`${styles["cancel-profile"]} mt-3 rounded-5`} onClick={this.handleCancel}>Cancel</button> */}
+                     <button
+                        className={`${styles["cancel-profile"]} mt-3 rounded-5`}
+                        onClick={(e) => {
+                           e.preventDefault();
+                           handleCancel(e);
+                        }}
+                     >
+                        Cancel
+                     </button>
+                  </div>
+
                   <button
                      className={`${styles["editpwd-profile"]} mt-5 rounded-5`}
                      onClick={(e) => {
@@ -292,7 +298,7 @@ const Profile = () => {
                         className={`${styles["form-data"]} d-flex flex-column m-4 w-50`}
                      >
                         <label for="">Email Address :</label>
-                        <text>{profile.email}</text>
+                        <text className="text-muted">{profile.email}</text>
                         <label for="">Delivery Address :</label>
                         <input
                            type="text"
@@ -309,7 +315,9 @@ const Profile = () => {
                         className={`${styles["form-data"]} d-flex flex-column m-4 w-50`}
                      >
                         <label for="">Mobile Number :</label>
-                        <text>{profile.phone_number}</text>
+                        <text className="text-muted">
+                           {profile.phone_number}
+                        </text>
                      </div>
                   </div>
                   <div
@@ -379,7 +387,7 @@ const Profile = () => {
                      </div>
                   </div>
 
-                  <div className="container d-flex flex-row flex-warp justify-content-center mt-3">
+                  <div className="container d-flex flex-row flex-warp justify-content-center my-3">
                      <div className={styles.input__radio}>
                         <input
                            type="radio"
@@ -414,7 +422,7 @@ const Profile = () => {
          </section>
          {/* <!-- End Container Full Center --> */}
 
-         <Footer></Footer>
+         <Footer />
          <Modal
             show={show}
             onHide={handleClose}
