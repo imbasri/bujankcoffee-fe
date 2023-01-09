@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 // import css navbar
 import styles from "../styles/Navbar.module.css";
@@ -16,6 +16,7 @@ import { Button, Modal } from "react-bootstrap";
 function NavbarAdmin() {
    const dispatch = useDispatch();
    const navigate = useNavigate();
+   const location = useLocation();
 
    const [show, setShow] = useState(false);
 
@@ -25,7 +26,13 @@ function NavbarAdmin() {
    const handleClose = () => {
       setShow(false);
    };
-
+   const handleSearch = (e) => {
+      // console.log(e);
+      if (e.key === "Enter") {
+         const search = e.target.value;
+         navigate(`/product?name_product=${search}`);
+      }
+   };
    const SuccessMessage = () => {
       toast.success("Logout Success", {
          position: toast.POSITION.TOP_RIGHT,
@@ -51,6 +58,7 @@ function NavbarAdmin() {
          <div className={`${styles.navbar_bar} container`}>
             <nav className="nav d-flex justify-content-between align-items-center mx-auto px-4">
                <div
+                  onClick={() => navigate("/")}
                   id="navbarNav"
                   className={`${styles["left-nav"]} d-flex py-4`}
                >
@@ -70,9 +78,16 @@ function NavbarAdmin() {
                   <Link to="/" className="nav-link">
                      Home
                   </Link>
-                  <Link to="/product" className="nav-link">
+                  <span
+                     onClick={() => {
+                        navigate(
+                           `/product?category=favorite&sorting=favorite&page=1&limit=12`
+                        );
+                     }}
+                     className="nav-link"
+                  >
                      Product
-                  </Link>
+                  </span>
                   <Link to="/history" className="nav-link">
                      Order
                   </Link>
@@ -80,9 +95,22 @@ function NavbarAdmin() {
                      Dashboard
                   </Link>
                </div>
-               <div id="navbarNav" className={`${styles["right-nav"]} d-flex `}>
+               <div
+                  id="navbarNav"
+                  className={`${styles["right-nav"]} d-flex justify-content-center align-items-center `}
+               >
+                  {location.pathname === "/product" ? (
+                     <div className={styles["box-search"]}>
+                        <input
+                           type="search"
+                           className={styles["input-search"]}
+                           onKeyDown={handleSearch}
+                        />
+                        <i className={`fa fa-search ${styles["fa_icon"]}`}></i>
+                     </div>
+                  ) : null}
                   <button
-                     className={`${styles["logout-style"]}`}
+                     className={`${styles["logout-style"]} ms-3 `}
                      onClick={handleShow}
                   >
                      Logout

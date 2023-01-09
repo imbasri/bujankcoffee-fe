@@ -11,7 +11,8 @@
     border-bottom: 1px solid #dee2e6;
 }
 
-.center-nav a {
+.center-nav a,
+.center-nav span {
     font-family: 'Rubik';
     font-style: normal;
     font-weight: 400;
@@ -20,9 +21,11 @@
     color: #4F5665;
 }
 
-.center-nav a:hover {
+.center-nav a:hover,
+.center-nav span:hover {
     transform: scale(1.1);
     color: #9e684b;
+    cursor: pointer;
 }
 
 .burger {
@@ -87,6 +90,9 @@
     text-align: center;
     font-size: 1.2em;
     transition: all 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .box-search:hover,
@@ -101,11 +107,7 @@
 }
 
 
-.box-search:hover .fa_icon,
-.box-search:valid .fa_icon {
-    background: #07051a;
-    color: white;
-}
+
 
 
 

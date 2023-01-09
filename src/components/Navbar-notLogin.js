@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 // import css
 import styles from "../styles/Home.module.css";
@@ -7,11 +7,21 @@ import icon_coffee from "../asset/icon_titlebar.png";
 import { ToastContainer, toast } from "react-toastify";
 
 export default function Navbar_notLogin() {
+   const navigate = useNavigate();
+   const location = useLocation();
+   console.log("location :", location);
    const onClick = () => {
       console.log("click");
       toast.error("please login first", {
          position: toast.POSITION.TOP_RIGHT,
       });
+   };
+   const handleSearch = (e) => {
+      // console.log(e);
+      if (e.key === "Enter") {
+         const search = e.target.value;
+         navigate(`/product?name_product=${search}`);
+      }
    };
    return (
       <>
@@ -19,7 +29,10 @@ export default function Navbar_notLogin() {
          {/* <!-- Start Navbar --> */}
          <div className={`${styles.navbar_bar} container`}>
             <nav className="nav d-flex justify-content-between align-items-center mx-auto px-4">
-               <div className={`${styles["left-nav"]} d-flex py-4`}>
+               <div
+                  className={`${styles["left-nav"]} d-flex py-4`}
+                  onClick={() => navigate("/")}
+               >
                   <img
                      src={icon_coffee}
                      alt=""
@@ -35,9 +48,17 @@ export default function Navbar_notLogin() {
                   <Link to="/" className="nav-link">
                      Home
                   </Link>
-                  <Link to="/product" className="nav-link">
+                  <span
+                     style={{ color: "#4f5665" }}
+                     className="nav-link"
+                     onClick={() => {
+                        navigate(
+                           "/product?category=favorite&sorting=favorite&page=1&limit=12"
+                        );
+                     }}
+                  >
                      Product
-                  </Link>
+                  </span>
                   <Link onClick={onClick} className="nav-link">
                      Your Cart
                   </Link>
@@ -46,6 +67,16 @@ export default function Navbar_notLogin() {
                   </Link>
                </div>
                <div className={`${styles["right-nav"]} d-flex`}>
+                  {location.pathname === "/" ? (
+                     <div className={styles["box-search"]}>
+                        <input
+                           type="search"
+                           onKeyDown={handleSearch}
+                           className={styles["input-search"]}
+                        />
+                        <i className={`fa fa-search ${styles["fa_icon"]}`}></i>
+                     </div>
+                  ) : null}
                   <Link
                      to="/login"
                      className={`${styles["login-nav"]} d-none d-sm-block d-md-none d-lg-block d-sm-none`}

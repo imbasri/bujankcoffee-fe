@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import axios from "axios";
 // import css
 import styles from "../styles/Product.module.css";
@@ -12,14 +12,13 @@ import CardPromo from "../components/CardPromo";
 import CardProduct from "../components/Card-Product";
 import titlebar from "../utility/WebDinamis";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import { useSelector } from "react-redux";
 
 const Product = () => {
    const url = `${process.env.REACT_APP_BACKEND_HOST}/product`;
    const profile = useSelector((state) => state.auth.profile);
-
    const [product, setProduct] = useState([]);
    let [currentPage, setCurrentPage] = useState(1);
    //   const [totalPage, setTotalPage] = useState("");
@@ -31,6 +30,9 @@ const Product = () => {
    const [promo, setPromo] = useState([]);
    const [loading, setLoading] = useState(false);
    const [loading_promo, setLoading_promo] = useState(false);
+   const [name_product, setName_product] = useState("");
+   let { search } = useLocation();
+   useMemo(() => new URLSearchParams(search), [search]);
    const navigate = useNavigate();
 
    useEffect(() => {
@@ -51,8 +53,8 @@ const Product = () => {
          });
    }, []);
 
-   // Kondisi ketika di refresh
-   useEffect(() => {
+   const getCategory = () => {
+      console.log(search);
       setLoading(true);
       setSorting(sorting);
       setCurrentPage(1);
@@ -68,11 +70,34 @@ const Product = () => {
             setPrev(res.data.result.prev);
             console.log(res.data.result);
             setLoading(false);
+            navigate(
+               `?category=${category}&sorting=${sorting}&page=${1}&limit=12`
+            );
          })
          .catch((err) => console.log(err));
-      navigate(`?category=${category}&sorting=${sorting}&page=${1}&limit=12`);
-   }, [sorting, category]);
+   };
 
+   // Kondisi ketika di refresh
+   useEffect(() => {
+      console.log(search);
+      getCategory();
+   }, [sorting, category]);
+   useEffect(() => {
+      setLoading(true);
+      console.log(search);
+      setLoading(true);
+      axios
+         .get(`${url}${search}`)
+         .then((res) => {
+            setProduct(res.data.result.data);
+            // console.log(res.data.result);
+            setLoading(false);
+         })
+         .catch((err) => {
+            console.log(err);
+            setLoading(false);
+         });
+   }, [search]);
    const costing = (price) => {
       return (
          "IDR " +
@@ -81,7 +106,6 @@ const Product = () => {
             .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.")
       );
    };
-
    const Favorite = () => {
       setSorting("favorite");
       setCategory("favorite");
@@ -89,24 +113,33 @@ const Product = () => {
    const Coffee = () => {
       setCategory("coffee");
       setSorting("");
+      setName_product("");
+      search = "";
    };
    const NonCoffee = () => {
       setCategory("non_coffee");
       setSorting("");
+      setName_product("");
+      search = "";
    };
    const Food = () => {
       setCategory("foods");
       setSorting("");
+      setName_product("");
+      search = "";
    };
    const AddOn = () => {
       setCategory("addon");
       setSorting("");
+      setName_product("");
+      search = "";
    };
    const Sort = (e) => {
       setSorting(e.target.value);
+      search = "";
+      setName_product("");
       if (category === "favorite") return setCategory("");
    };
-
    const getPrevProducts = () => {
       window.scrollTo(0, 0);
       setLoading(true);
