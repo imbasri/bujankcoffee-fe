@@ -95,9 +95,9 @@ const Home = () => {
                      className={`container-fluid ${styles["box-center-content"]}`}
                   >
                      <div
-                        className={`container ${styles["content-bottom"]} d-flex flex-wrap justify-content-around bg-white rounded-4`}
+                        className={`container ${styles["content-bottom"]} d-flex flex-wrap justify-content-around bg-white rounded-4 d-none d-md-flex d-lg-flex`}
                      >
-                        <div className="row d-flex flex-warp justify-content-between w-100 my-3">
+                        <div className="row d-flex flex-warp justify-content-between w-100 my-3 ">
                            <div className="col-md-4 col-sm-4 d-flex borderalign-items-center justify-content-center">
                               <span>
                                  <img src={icon_staff} alt="staff_icon" />
@@ -196,7 +196,7 @@ const Home = () => {
             </section>
 
             <section
-               className={`${styles["section-one"]} container mx-0 mt-5 `}
+               className={`${styles["section-one"]} container mx-auto mt-5 `}
             >
                <div className="row">
                   <div className="col-md-4 col-sm-12 d-flex flex-column justify-content-center align-items-center">
@@ -348,7 +348,7 @@ const Home = () => {
 
             {/* <!-- map --> */}
             <section
-               className={`container ${styles["map"]} row text-center d-flex align-content-center justify-content-around mx-auto my-5`}
+               className={`container ${styles["map"]}  text-center d-flex align-content-center justify-content-around mx-auto my-5`}
             >
                <div className="col-12">
                   <h2 className={styles["visit-store"]}>
@@ -365,9 +365,9 @@ const Home = () => {
             </section>
 
             {/* <!-- out partner --> */}
-            <section className="container row text-center mx-auto my-5">
+            <section className="container  text-center mx-auto my-5">
                <div className={`${styles["partner"]} col-12 mx-auto`}>
-                  <h2 className="fw-bold">Our Partner</h2>
+                  <h2 className="fw-bold mt-5">Our Partner</h2>
                   <div className={styles["partner__img"]}>
                      <img src={netflix} alt="netflix" />
                      <img src={reddit} alt="reddit" />

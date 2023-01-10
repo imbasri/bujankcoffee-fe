@@ -86,9 +86,6 @@
     margin-bottom: 70px;
 }
 
-
-
-
 .register .input {
     display: flex;
     flex-direction: column;
@@ -96,6 +93,16 @@
     margin: 0px 40px 0 40px;
 }
 
+.input {
+    position: relative;
+}
+
+.iconEye {
+    position: absolute;
+    bottom: 15px;
+    right: 16px;
+    cursor: pointer;
+}
 
 .input>input {
     margin-top: 6px;

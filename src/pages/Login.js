@@ -114,7 +114,7 @@ function Login() {
             </aside>
 
             <aside className={styles["right-heading"]}>
-               <Link to="#" className={styles["icon-coffee"]}>
+               <Link to="/" className={styles["icon-coffee"]}>
                   <img
                      src={icon_coffee}
                      alt="icon_coffee"

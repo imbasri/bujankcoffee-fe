@@ -40,7 +40,7 @@ export default function Navbar_notLogin() {
                      widht="27px"
                      height="27px"
                   />
-                  <span className="mt-1">Bujank Coffee</span>
+                  <span>Bujank Coffee</span>
                </div>
                <div
                   className={`${styles["center-nav"]} d-sm-none d-none  d-sm-none d-md-none d-lg-flex flex-row`}
@@ -67,7 +67,7 @@ export default function Navbar_notLogin() {
                   </Link>
                </div>
                <div className={`${styles["right-nav"]} d-flex`}>
-                  {location.pathname === "/" ? (
+                  {location.pathname === "/" ? null : (
                      <div className={styles["box-search"]}>
                         <input
                            type="search"
@@ -76,7 +76,7 @@ export default function Navbar_notLogin() {
                         />
                         <i className={`fa fa-search ${styles["fa_icon"]}`}></i>
                      </div>
-                  ) : null}
+                  )}
                   <Link
                      to="/login"
                      className={`${styles["login-nav"]} d-none d-sm-block d-md-none d-lg-block d-sm-none`}

@@ -13,13 +13,18 @@ import bg_left_forgotpwd from "../asset/forgotpwd_bgleft.png";
 import icon_coffee from "../asset/icon_titlebar.png";
 import { Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+// import icon react bawaan
+import { Icon } from "react-icons-kit";
+import { eye } from "react-icons-kit/feather/eye";
+import { eyeOff } from "react-icons-kit/feather/eyeOff";
 
 const ForgotPWD = () => {
    const navigate = useNavigate();
-
    const [email, setEmail] = useState("");
    const [notif, setNotif] = useState(false);
    const [loading, setLoading] = useState(false);
+   const [type, setType] = useState("password");
+   const [icon, setIcon] = useState(eyeOff);
 
    const sendMail = (e) => {
       setLoading(true);
@@ -42,7 +47,15 @@ const ForgotPWD = () => {
             setLoading(false);
          });
    };
-
+   const handleToggle = () => {
+      if (type === "password") {
+         setIcon(eye);
+         setType("text");
+      } else {
+         setIcon(eyeOff);
+         setType("password");
+      }
+   };
    const valueEmail = (e) => {
       setEmail(e.target.value);
       console.log(e.target.value);
@@ -74,12 +87,16 @@ const ForgotPWD = () => {
                   </div>
                   <div className={styles.input}>
                      <input
-                        type="text"
+                        type={type}
                         onChange={valueEmail}
                         placeholder="Enter your email address to get link"
                      />
+                     <Icon
+                        icon={icon}
+                        onClick={handleToggle}
+                        className={`${styles.iconEye}`}
+                     />
                   </div>
-
                   <div className={styles.button}>
                      {loading ? (
                         <div className="d-flex justify-content-center align-items-center mx-auto">
@@ -89,7 +106,6 @@ const ForgotPWD = () => {
                         <button onClick={sendMail}>Send</button>
                      )}
                   </div>
-
                   <div className={`${styles["send-text"]} text-center`}>
                      {notif ? (
                         <p className={styles.send_one}>
