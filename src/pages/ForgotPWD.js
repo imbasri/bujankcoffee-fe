@@ -64,7 +64,6 @@ const ForgotPWD = () => {
             <aside className={styles["right-heading"]}>
                <div className={styles["icon-coffee"]}>
                   <img src={icon_coffee} alt="icon_coffee" width={100} />
-                  <p>Bujank Coffee</p>
                </div>
                <form className={styles.register}>
                   <div className={`${styles["forgot-text"]} text-center`}>
@@ -84,7 +83,7 @@ const ForgotPWD = () => {
                   <div className={styles.button}>
                      {loading ? (
                         <div className="d-flex justify-content-center align-items-center mx-auto">
-                           <Spinner animation="border" variant="info" />
+                           <Spinner animation="grow" variant="warning" />
                         </div>
                      ) : (
                         <button onClick={sendMail}>Send</button>

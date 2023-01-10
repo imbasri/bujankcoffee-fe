@@ -10,7 +10,7 @@ import titlebar from "../utility/WebDinamis";
 
 // import images
 import bg_left_forgotpwd from "../asset/forgotpwd_bgleft.png";
-import icon_coffee from "../asset/icon_coffee.png";
+import icon_coffee from "../asset/icon_titlebar.png";
 import { Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -81,8 +81,7 @@ const ResetPassword = () => {
 
             <aside className={styles["right-heading"]}>
                <div className={styles["icon-coffee"]}>
-                  <img src={icon_coffee} alt="icon_coffee" />
-                  <p>Bujank Coffee</p>
+                  <img src={icon_coffee} alt="icon_coffee" width={100} />
                </div>
                <form className={styles.register}>
                   <div className={`${styles["forgot-text"]} text-center`}>
@@ -110,7 +109,7 @@ const ResetPassword = () => {
                   <div className={styles.button}>
                      {loading ? (
                         <div className="d-flex justify-content-center align-items-center mx-auto">
-                           <Spinner animation="border" variant="info" />
+                           <Spinner animation="grow" variant="warning" />
                         </div>
                      ) : (
                         <button onClick={ResetPassword}>

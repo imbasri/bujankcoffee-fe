@@ -77,6 +77,7 @@ function Login() {
    // Mendapatkan token dan di simpan di localstorage
    const handleApi = async (e) => {
       try {
+         setLoading(true);
          e.preventDefault();
          if (!email || !passwords)
             return (
@@ -153,7 +154,7 @@ function Login() {
                   <div className={styles.button}>
                      {loading ? (
                         <div className="d-flex justify-content-center align-items-center pt-3">
-                           <Spinner animation="border" />
+                           <Spinner animation="grow" variant="warning" />
                         </div>
                      ) : (
                         <button>Login</button>

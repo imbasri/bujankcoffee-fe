@@ -143,10 +143,12 @@ const History = () => {
                         <Spinner animation="grow" variant="warning" />
                      </div>
                   ) : err === "History Not Found" ? (
-                     <h1 className="text-white text-center mt-5">
-                        History Empty
-                        <i class="bi bi-bag-x-fill">.</i>
-                     </h1>
+                     <div style={{ height: "80vh" }}>
+                        <h1 className="text-white text-center mt-5">
+                           History Empty
+                           <i class="bi bi-bag-x-fill">.</i>
+                        </h1>
+                     </div>
                   ) : (
                      <>
                         <div className="d-flex flex-wrap mx-auto justify-content-md-center justify-content-sm-center">
