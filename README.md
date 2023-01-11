@@ -23,7 +23,8 @@
 
 ## Features
 
--  Get Category
+-  Auth
+-  Get Category and Search Product
 -  Order feature for customer
 -  Payment feature
 -  And others
@@ -35,7 +36,7 @@
 ## Usage for development
 
 1. Open your terminal or command prompt.
-2. Type `git clone https://github.com/imbasri-dev/bujank_coffee_react.git`
+2. Type `git clone https://github.com/imbasri/bujankcoffee-fe.git`
 3. Open folder with your text editor.
 4. Start to edit and development.
 
@@ -57,8 +58,8 @@
 
 ## Related Project
 
--  Frontend Deploy [`here`](https://bujankcoffeereact.vercel.app/)
--  Backend API Deploy [`here`](https://bujankcoffeeapi.vercel.app/)
--  Backend API Documentation [`here`](https://documenter.getpostman.com/view/23706970/2s847ESaNS)
+-  Frontend Deploy [`here`](https://bujankcoffee-fe.vercel.app/)
+-  Backend API Deploy [`here`](https://bebujankcoffee-1mt7.vercel.app/)
+-  Backend API Documentation [`here`](https://documenter.getpostman.com/view/23706970/2s8ZDR75hg)
 
 <p align="center"><sub><b>&copy;2022❤️BujankCoffee☕</b></sub></p>
