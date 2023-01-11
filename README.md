@@ -52,7 +52,7 @@
         <img width="250" height="250" src="./src/asset/github/Payment.png">
         <img width="250" height="250" src="./src/asset/github/Profile.png">
         <img width="250" height="250" src="./src/asset/github/Forgot-Password.png">
-        <img width="300" height="300" src="./src/asset/github/History.png">
+        <img width="250" height="250" src="./src/asset/github/History.png">
     </div>
 </table>
 
